@@ -177,7 +177,7 @@ li a, .drop {
 	text-decoration: none;
 }
 
-#home .home, #cv .cv, #projects .projects, #notes .notes, #nsf .nsf, #poster .poster, #phd-admissions .phd-admissions {
+#home .home, #cv .cv, #nsf .nsf, #poster .poster, #phd-admissions .phd-admissions {
 	color: #333300;
     cursor: text;
     pointer-events: none;
