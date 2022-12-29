@@ -30,25 +30,6 @@ embed {
     margin-top: 5px; 
 }
 
-.comingSoon {
-    font-family: "VT323";
-    color: #DC143C;
-}
-
-.info {
-    font-family: "VT323";
-    font-size: 12px;
-    color: #cc3366;
-    vertical-align: super;
-    margin-left: -4px;
-}
-
-.technique {
-    font-family: "VT323";
-}
-
-
-
 /* Name - styling for name */
 
 #name {
@@ -212,19 +193,6 @@ a:hover .active  {
 
 
 
-/* Table of Contents */
-.toc {
-    background-color: #f1f1f1;
-    padding: 0px 20px;
-    border: solid 1px #c2c2c2;
-    display: table;
-}
-
-.toc a {
-    padding: 0px;
-    padding-bottom: 1px;
-}
-
 
 
 /* Page Divider */
@@ -237,11 +205,6 @@ hr.style {
 /*     border-width: ; */
 }
 
-
-
-
-
-/* Tooltips*/
 
 
 
@@ -389,16 +352,6 @@ table th {
 
 
 
-	
-/* Projects - Styling Specific to the Projects Section */
-.projectDispNone {
-    display: none;
-}
-
-h2:active .project {
-    display: inline-block;
-}
-
 
 
 
@@ -460,51 +413,3 @@ h2:active .project {
     text-align: center;
     padding: 10px 20px;
 }
-
-
-
-
-
-
-
-/* Notes List - Styling for the Notes Front Page */
-.notesList {
-    list-style-type: none;
-    text-align: left;
-}
-
-.notesList a {
-    padding: 0px;
-}
-
-
-
-
-
-/* Text Editor - Styling for Notes Emulating Code and Code Comments */
-.codeblock {
-    font-family: monospace;
-    font-size: 14px;
-    color: #cdbf99;
-    background-color: #3f3f3f;
-    padding: 10px;
-    
-}
-
-.comment {
-    color: palevioletred;
-}
-
-
-
-
-
-/* Note Page Footer - Styling for the Bottom Navigation of Individual Notes Pages */
-.botNavRight {
-    float: right;
-    list-style-type: none;
-    margin: -15px 0px;
-    
-}
-
-
