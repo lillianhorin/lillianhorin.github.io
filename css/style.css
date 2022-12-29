@@ -13,7 +13,7 @@ p {
 }
 
 a:hover {
-    color: #DC143C;
+    color: #BB370A;
 }
 
 i {
@@ -22,13 +22,23 @@ i {
 }
 
 i:hover {
-	color: #DC143C
+	color: #BB370A
 }
 
 
 embed {
     margin-top: 5px; 
 }
+
+
+li {
+	margin: 0;
+}
+
+ul ul li {
+	margin-bottom: 0;
+}
+
 
 
 /* Name - styling for name */
@@ -288,7 +298,7 @@ hr.style {
 /* Tables - Styling For Tables */
 table {
     border-collapse: collapse;
-    border-bottom: 2px solid #DC143C;
+    border-bottom: 2px solid #BB370A;
     border-width: thin;
     width: 100%;
 	font-size: 14px;
@@ -299,13 +309,13 @@ table th, table td {
     border-bottom: 1px solid;
     padding: 8px;
     border-collapse: collapse;
-    border-color: #DC143C;
+    border-color: #BB370A;
     border-width: thin;
 }
 
 table th {
     border-bottom: 2px solid;
-    border-color: #DC143C;
+    border-color: #BB370A;
     text-align: left;
     
 }
