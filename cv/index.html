@@ -4,6 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/style.css">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script defer src="../js/load.js"></script>
 <script defer src="../js/animation.js"></script>
 
 <!-- Fonts and Stylesheets -->
@@ -19,22 +20,10 @@
 	
 <!-- Name -->
 <main>
-<div id="name"></div>	
-<script>
-$(function(){
-  $("#name").load("../title.html");
-});
-</script>
+<div id="name"></div>
 
-    
 <!-- Navigation -->
-<nav><div id="nav-placeholder"></div>
-<script>
-$(function(){
-  $("#nav-placeholder").load("../nav.html");
-});
-</script>
-</nav>
+<nav><div id="nav"></div></nav>
 	
 <hr class="style">
 
@@ -217,6 +206,8 @@ $(function(){
     
 <!-- Footer -->
 <hr class="style" id="last">
-    <div class="footer"><div id="copyright">© Lillian Horin</div> <div id="update">Content Last Updated: 12/28/2022 </div></div>
+	
+<div id="footer"></div>
+	
 </body>
 </html>

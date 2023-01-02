@@ -2,13 +2,15 @@
 <html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script defer src="../js/load.js"></script>
+
 
 <!-- Fonts and Stylesheets -->
 <head><link href="https://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro|VT323|Libre+Baskerville&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-<link rel="stylesheet" href="css/academicons.css"/>
+<link rel="stylesheet" href="../css/academicons.css"/>
 
 
 <!-- Title -->
@@ -19,27 +21,18 @@
 <body id="home">
 	
 <!-- Name -->
-<div id="name"></div>	
-<script>
-$(function(){
-  $("#name").load("title.html");
-});
-</script>
+<main>
+<div id="name"></div>
 
-    
 <!-- Navigation -->
-<nav><div id="nav-placeholder"></div>
-<script>
-$(function(){
-  $("#nav-placeholder").load("nav.html");
-});
-</script>
-</nav>
+<nav><div id="nav"></div></nav>
+	
+<hr class="style">
 	
     
 <!-- Intro -->
 <main>
-<center><img id="papelpicado" src="img/papelpicado3.png" alt=""/></center><br />
+<center><img id="papelpicado" src="../img/papelpicado3.png" alt=""/></center><br />
     
 <p>Hello! Welcome to the small corner of the Internet where I share things that may be useful.</p>
 
@@ -59,10 +52,15 @@ $(function(){
 
 
 </div>
+	
 </main>
-    
+	
+	
+
 <!-- Footer -->
 <hr class="style" id="last">
-    <div class="footer"><div id="copyright">© Lillian Horin 2019</div> <div id="update">Content Last Updated: 12/1/19 </div></div>
+	
+<div id="footer"></div>
+	
 </body>
 </html>

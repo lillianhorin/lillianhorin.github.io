@@ -4,6 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/style.css">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script defer src="../js/load.js"></script>
 
 <!-- Fonts and Stylesheets -->
 <head><link href="https://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro|VT323|Libre+Baskerville&display=swap" rel="stylesheet"> 
@@ -17,22 +18,11 @@
 <body id="nsf">
 	
 <!-- Name -->
-<div id="name"></div>	
-<script>
-$(function(){
-  $("#name").load("../title.html");
-});
-</script>
+<main>
+<div id="name"></div>
 
-    
 <!-- Navigation -->
-<nav><div id="nav-placeholder"></div>
-<script>
-$(function(){
-  $("#nav-placeholder").load("../nav.html");
-});
-</script>
-</nav>
+<nav><div id="nav"></div></nav>
 	
 <hr class="style">
 
@@ -99,9 +89,14 @@ $(function(){
     <p><a target="_lank" href="http://www.malloryladd.com/nsf-grfp-advice.html">Advice to Applicants of the NSF'S Graduate Research Fellowship Program - Mallory Ladd</a></p>
     
 
-    <hr class="style">
-    
+</main>
+    	
+
 <!-- Footer -->
 <hr class="style" id="last">
-    <div class="footer"><div id="copyright">© Lillian Horin 2017</div> <div id="update">Content Last Updated: 5/10/17 </div></div>
-</main>
+	
+<div id="footer"></div>
+	
+	
+</body>
+</html>

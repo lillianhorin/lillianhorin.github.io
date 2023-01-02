@@ -4,6 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/style.css">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script defer src="../js/load.js"></script>
 
 <!-- Fonts and Stylesheets -->
 <head><link href="https://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro|VT323|Libre+Baskerville&display=swap" rel="stylesheet"> 
@@ -17,22 +18,11 @@
 <body id="poster">
 	
 <!-- Name -->
-<div id="name"></div>	
-<script>
-$(function(){
-  $("#name").load("../title.html");
-});
-</script>
+<main>
+<div id="name"></div>
 
-    
 <!-- Navigation -->
-<nav><div id="nav-placeholder"></div>
-<script>
-$(function(){
-  $("#nav-placeholder").load("../nav.html");
-});
-</script>
-</nav>
+<nav><div id="nav"></div></nav>
 	
 <hr class="style">
 
@@ -140,11 +130,9 @@ $(function(){
     
     <p><a target="_blank" href="http://colinpurrington.com/tips/poster-design">Colin Purrington - Designing Conference Posters</a></p>
     <p><a target="_blank" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1955747/">Preparing and Presenting Effective Research Posters</a></p>
-   
-<hr class="style"> 
-
+  
     
-<!-- Footer -->                    
+<!-- Footer -->
 <hr class="style" id="last">
-    
-    <div class="footer"><div id="copyright">© Lillian Horin 2017</div> <div id="update">Content Last Updated: 7/2/17 </div></div>
+	
+<div id="footer"></div>
