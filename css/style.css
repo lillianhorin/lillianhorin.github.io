@@ -122,8 +122,6 @@ h6 {
 
 
 mark {
-  -webkit-animation: 1s highlight 1s 1 normal forwards;
-          animation: 1s highlight 1s 1 normal forwards;
   background-color: none;
   background: linear-gradient(90deg, #C7A4D8 50%, rgba(255, 255, 255, 0) 50%);
   background-size: 200% 100%;
@@ -142,6 +140,11 @@ mark {
   }
 }
 
+.show {
+-webkit-animation: 0.5s highlight 0.5s 1 normal forwards;
+	  animation: 0.5s highlight 0.5s 1 normal forwards;
+    opacity: 1;
+}
 
 
 
