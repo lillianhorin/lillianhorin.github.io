@@ -9,7 +9,7 @@ body {
 
 p {
     text-align: justify;
-	font-size: 18px;
+	font-size: 16px;
 }
 
 a:hover {
@@ -34,6 +34,10 @@ embed {
 li {
 	margin: 0;
 	padding: 0;
+}
+
+ul li {
+	font-size: 16px;
 }
 
 ul li li {
