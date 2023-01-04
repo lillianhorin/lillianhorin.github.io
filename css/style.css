@@ -44,6 +44,11 @@ ul li li {
 	margin-bottom: -5px;
 }
 
+li a {
+	font-size: 16px;
+	
+}
+
 
 
 /* Name - styling for name */
@@ -169,7 +174,7 @@ mark {
 	display: inline-block;
 }
 
-li a {
+.nav li a {
 	display: block;
 	text-align: center;
 	padding: 10px 25px 0px;
@@ -177,7 +182,7 @@ li a {
 	text-decoration: none;
 }
 
-li a, .drop {
+.nav li a, .drop {
 	display: block;
 	color: #808080;
 	text-align: center;
