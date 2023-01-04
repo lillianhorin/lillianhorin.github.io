@@ -36,18 +36,11 @@ li {
 	padding: 0;
 }
 
-ul li {
-	font-size: 16px;
-}
 
 ul li li {
 	margin-bottom: -5px;
 }
 
-li a {
-	font-size: 16px;
-	
-}
 
 
 
@@ -367,6 +360,7 @@ table th {
 
 
 /* External Resources - Styling Specific to External Resources Page*/
+/*
 
 .resources {
 	font-size: 12px;
@@ -396,6 +390,7 @@ table th {
     width: 100%;
   }
 }
+*/
 
 
 
