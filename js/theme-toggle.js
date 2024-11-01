@@ -22,6 +22,7 @@ themeToggle.addEventListener('click', () => {
     const theme = document.documentElement.classList.contains('light-mode') ? 'light' : 'dark';
     localStorage.setItem('theme', theme);
 
+    // Update the icon and tooltip text based on the theme
     if (theme === 'light') {
         themeToggle.textContent = moonIcon;
         themeToggle.setAttribute('data-tooltip', 'Toggle to dark mode');
@@ -31,9 +32,9 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
-// Hover effect for changing the icon to a split icon
+// Hover effect to show split icon
 themeToggle.addEventListener('mouseenter', () => {
-    themeToggle.textContent = splitIcon; // Split sun/moon icon on hover
+    themeToggle.textContent = splitIcon;
 });
 
 themeToggle.addEventListener('mouseleave', () => {
