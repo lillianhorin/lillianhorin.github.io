@@ -1,240 +1,145 @@
-/* Body - General Styling To Be Used Anywhere On The Site*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Libre+Baskerville&display=swap');
 
+/* Define common colors, font families, and sizes */
+:root {
+  /* Spacing */
+  --body-margin: 0px 17%; /* Controls side margins for desktop */
+  --font-size-base: 1vw; /* Base font size */
+
+  /* Font Families */
+  --font-family-base: 'Inter', sans-serif;
+  --font-family-heading: 'Libre Baskerville', serif;
+
+  /* Font Colors */
+  --font-color-base: var(--gray-7);
+  --font-color-muted: var(--gray-6);
+  --font-color-heading: var(--gray-7);
+
+  /* Font Sizes */
+  --font-size-base: 1vw;
+  --name-font-size: 1.2rem;
+  --tooltip-font-size: 0.75rem;
+
+  /* Borders */
+  --border-color: var(--gray-3);
+  --border-radius: 8px;
+
+  /* Content Widths */
+  --content-width: 1200px; 
+  --container-padding: 2rem;
+  --navbar-height: 60px;
+
+  /* Theme Colors (Dark mode default) */
+  --background-color: #121212;
+  --font-color-base: #f1f1f1;
+  --font-color-muted: #b3b3b3;
+  --link-color: #ffffff;
+  --border-color: #333;
+  --navbar-background: #1c1c1c;
+
+  /* Accent Colors */
+  --accent-color: #BB370A; /* Dominant accent color */
+  --highlight-color: #C7A4D8; /* Highlight color for animations and mark */
+
+  /* Table Specific Variables */
+  --table-border-color: var(--accent-color);
+  --table-font-size: 14px;
+  --table-padding: 8px;
+
+  /* Button Sizes */
+  --theme-toggle-size: 35px;
+
+  /* Tooltip */
+  --tooltip-background: #333; 
+  --tooltip-color: #fff;
+}
+
+
+/* Light Mode */
+.light-mode {
+  --background-color: #ffffff;
+  --font-color-base: #2c2c2c;
+  --font-color-muted: #575757;
+  --link-color: #000000;
+  --border-color: #e0e0e0;
+  --navbar-background: #f9f9f9;
+  --highlight-color: #C7A4D8;
+}
+
+/* Body styling */
 
 body {
-	margin: 0px 17%; 
-	font-family: "Inter", "Verdana", sans-serif;
-    font-size:1vw;
-}
+    font-family: var(--font-family-base);
+    color: var(--font-color-base);
+    background-color: var(--background-color);
+    margin: var(--body-margin); 
+    font-size: var(--font-size-base);
+    padding: 0;
+  }
 
+/* Paragraph Styling */
 p {
     text-align: justify;
-	font-size: 16px;
+    font-size: 1rem; 
+    color: var(--font-color-base); 
+    line-height: 1.6; 
+    margin-bottom: 1rem;
 }
 
-a:hover {
-    color: #BB370A;
-}
-
+/* Icon (i) Styling */
 i {
-	margin: 0px 7.5px;
-	color: #000000;
+    margin: 0 7.5px;
+    color: var(--font-color-base); /* Default color for icons */
 }
 
 i:hover {
-	color: #BB370A
+    color: var(--accent-color);
 }
 
-
+/* Embed Styling */
 embed {
-    margin-top: 5px; 
-}
-
-
-li {
-	margin: 0;
-	padding: 0;
-}
-
-
-ul li li {
-	margin-bottom: -5px;
-}
-
-
-
-
-/* Name - styling for name */
-
-#name {
-	text-align: center;
-	font-size: 35px;
-	margin: 3% 0% 0% 1%;
-	font-family: "Libre Baskerville", Garamond, serif;
-	color: #353535 !important;
-	text-decoration: none;
-}
-
-#name a {
-	color: #353535 !important;
-	text-decoration: none;
-}
-
-#name a:visited {
-	text-decoration: none;
-}
-
-#name a:hover {
-	text-decoration: none;
-}
-
-#name a:active {
-	text-decoration: none;
-}
-
-
-
-
-/* Headings - Defined Font Styles for Headings */
-
-
-h1 {
-    font-size: 24px;
-    letter-spacing: 4px;
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 45px;
-}
-
-h2 {
-	font-size: 16px;
-}
-
-h3 {
-    font-size: 14px;
-    text-align: left;
-}
-
-h4 {
-    font-size: 24px;
-    display: block;
-    text-align: center;
-    margin-bottom: 0px;
-    
-}
-
-h5 { 
-    font-size: 18px;
-    font-weight: 100;
-    color: gray;
-    display: block;
-    text-align: center;
     margin-top: 5px;
 }
 
-h6 {
-    text-align: center;
-    font-size: 20px;
-    margin: 0px;
-    padding-top: 20px;
+/* List Item Styling */
+li {
+    margin: 0;
+    padding: 0;
 }
 
+ul li li {
+    margin-bottom: -5px;
+}
 
-/* Highlighting - Defines highlighter color and animation */
+/* Link Styling */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+  
+a:hover {
+color: var(--accent-color);
+}
+  
 
+/* Highlighting - color and animation */
 
 mark {
-  background-color: none;
-  background: linear-gradient(90deg, #C7A4D8 50%, rgba(255, 255, 255, 0) 50%);
-  background-size: 200% 100%;
-  background-position: 100% 0;
-}
-
-@-webkit-keyframes highlight {
-  to {
-    background-position: 0 0;
-  }
+    background: linear-gradient(90deg, var(--highlight-color) 50%, rgba(255, 255, 255, 0) 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
 }
 
 @keyframes highlight {
-  to {
-    background-position: 0 0;
-  }
+    to {
+        background-position: 0 0;
+    }
 }
 
 .show {
--webkit-animation: 0.5s highlight 0.5s 1 normal forwards;
-	  animation: 0.5s highlight 0.5s 1 normal forwards;
+    animation: highlight 0.5s 0.5s forwards;
     opacity: 1;
 }
-
-
-
-/* Navigation - Defines the Navigation For Each Page*/
-.nav {
-	list-style-type: none;
-	font-weight: bold;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	font-family: "Inter", "Verdana", sans-serif;
-	font-size: 18px;
-	text-align: center;
-    margin-bottom: 5%;
-}
-
-.nav li {
-	display: inline-block;
-}
-
-.nav li a {
-	display: block;
-	text-align: center;
-	padding: 10px 25px 0px;
-	color: #808080;
-	text-decoration: none;
-}
-
-.nav li a, .drop {
-	display: block;
-	color: #808080;
-	text-align: center;
-	text-decoration: none;
-}
-
-#home .home, #cv .cv, #nsf .nsf, #poster .poster, #phd-admissions .phd-admissions {
-	color: #333300;
-    cursor: text;
-    pointer-events: none;
-}
-
-a:hover .active  {
-    color: #333300;
-}
-
-.nav li a:hover, .dropdown:hover .drop {
-	color: #BB370A;
-}
-
-.nav li.dropdown {
-	display: inline-block;
-}
-
-.dropdown-list {
-	display: none;
-	position: absolute;
-	min-width: 160px;
-	z-index: 1;
-	background-color: #FFFFFF;
-    padding-bottom: 10px;
-}
-
-.dropdown-list a{
-	display: block;
-	text-align: left;
-}
-
-.dropdown:hover .dropdown-list {
-	display: block;
-}
-
-
-@media (max-width: 768px) {
-	.nav li {
-		display: block;
-	}
-}
-
-
-@media (max-width: 400px) {
-	.nav li {
-		display: block;
-	}
-}
-
-
-
-
 
 /* Page Divider */
 hr.style { 
@@ -247,7 +152,201 @@ hr.style {
 }
 
 
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--table-font-size);
+    border-bottom: 2px solid var(--table-border-color);
+}
 
+table th, table td {
+    padding: var(--table-padding);
+    border-bottom: 1px solid var(--table-border-color);
+}
+
+table th {
+    border-bottom-width: 2px;
+    text-align: left;
+}
+
+/* iFrame Responsiveness */
+
+@media (max-width: 768px) {
+	iframe {
+		width: 400px;
+		height: 225px;
+	}
+	
+}
+
+
+@media (max-width: 400px) {
+	iframe {
+		width: 300px;
+		height: 168px;
+	}
+}
+
+
+
+
+
+/* Header (Name Styling) */
+#name {
+    font-family: var(--font-family-heading);
+    font-size: var(--name-font-size);
+    font-weight: 600;
+    color: var(--name-color);
+    margin: 0;
+    padding: 0;
+    line-height: var(--navbar-height); /* Aligns with navbar height */
+    text-decoration: none;
+}
+
+#name a,
+#name a:visited,
+#name a:hover,
+#name a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Navigation - Global Variables */
+:root {
+    --navbar-height: 60px;
+    --container-padding: 10rem;
+    --content-width: 1200px;
+    --navbar-color: #353535;
+    --navbar-color-hover: #BB370A;
+    --navbar-background: #ffffff;
+    --border-color: #e0e0e0;
+}
+
+/* Navigation Styling */
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--navbar-background);
+    z-index: 1000;
+    font-family: var(--font-family-base);
+    border-bottom: 1px solid var(--border-color); /* Subtle bottom border */
+}
+
+/* Container Styling for Navigation Content */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Navigation Links */
+.nav {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav a {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--navbar-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: var(--navbar-color-hover);
+}
+
+.nav a.active {
+    color: var(--primary-color);
+    pointer-events: none; /* Prevent clicking on active link */
+}
+
+@media (max-width: 768px) {
+    #name {
+        display: none; /* Hide name on mobile */
+    }
+
+    .nav {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
+    .navigation {
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+    }
+}
+
+
+
+/* Theme Toggle Button */
+#theme-toggle {
+    background-color: transparent;
+    border: none;
+    color: var(--font-color-base);
+    border-radius: 50%;
+    width: var(--theme-toggle-size);
+    height: var(--theme-toggle-size);
+    font-size: var(--name-font-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 0;
+    outline: none;
+}
+
+#theme-toggle:hover {
+    background-color: var(--highlight-color);
+    color: #fff;
+}
+
+/* Tooltip for Theme Toggle */
+#theme-toggle[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -30px;
+    background: var(--tooltip-background);
+    color: var(--tooltip-color);
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: var(--tooltip-font-size);
+    white-space: nowrap;
+    opacity: 0.9;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #name {
+        display: none; /* Hide name on mobile */
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
+    .navigation {
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+    }
+}
 
 /* Footer - Defines the Bottom of the Website */
 
@@ -276,59 +375,6 @@ hr.style {
 
 
 
-
-
-
-/* iFrame Responsiveness */
-
-
-@media (max-width: 768px) {
-	iframe {
-		width: 400px;
-		height: 225px;
-	}
-	
-}
-
-
-@media (max-width: 400px) {
-	iframe {
-		width: 300px;
-		height: 168px;
-	}
-}
-
-
-
-
-/* Tables - Styling For Tables */
-table {
-    border-collapse: collapse;
-    border-bottom: 2px solid #BB370A;
-    border-width: thin;
-    width: 100%;
-	font-size: 14px;
-    
-}
-
-table th, table td {
-    border-bottom: 1px solid;
-    padding: 8px;
-    border-collapse: collapse;
-    border-color: #BB370A;
-    border-width: thin;
-}
-
-table th {
-    border-bottom: 2px solid;
-    border-color: #BB370A;
-    text-align: left;
-    
-}
-
-
-
-
 /* Homepage - Styling Specific to the Front Page*/
 
 .socials {
@@ -338,8 +384,6 @@ table th {
 #papelpicado {
     max-width: 100%;
 }
-
-
 
 /* CV - Styling Specific to CV*/
 
@@ -356,103 +400,3 @@ table th {
 }
 
 
-
-
-
-/* External Resources - Styling Specific to External Resources Page*/
-/*
-
-.resources {
-	font-size: 12px;
-	text-align: left;
-}
-
-.resources a {
-	text-align: left;	
-	margin-left: -2em;
-	font-weight: bold;
-}
-
-
-.resources .row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.resources .column {
-	float: left;
-	width: 33.33%;
-}
-
-@media screen and (max-width: 768px) {
-  .resources .column {
-    width: 100%;
-  }
-}
-*/
-
-
-
-
-
-
-
-/* Poster Presentation Advice - Styling Specific to the Poster Page*/
-
-#posterhead {
-    max-width: 100%;
-    max-height: 100%;
-}
-#flow {
-    float: right;
-    margin-left: 10px;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.stack {
-  display: block;
-  float: left;
-  margin-right: 10px;
-}
-
-.thesis {
-    display: block;
-    margin-bottom: 5px;
-    max-width: 100%;
-    max-height: 100%;
-}
-.bruce {
-  display: block;
-}
-
-#thesis {
-    object-fit: cover;
-    max-height: 100%;
-    max-width: 100%;
-}
-
-
-
-
-
-
-/* NSF - Styling Specific to the NSF Page */
-#nsfproposal {
-    align-items: left;
-}
-
-#nsfsop {
-    align-items: right;
-}
-
-
-.nsfp {
-    float: left;
-}
-
-.nsfreview th {
-    text-align: center;
-    padding: 10px 20px;
-}
