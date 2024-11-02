@@ -77,6 +77,11 @@ body {
     padding: 0;
   }
 
+  /* Main Content Styling */
+.main-content {
+    margin-top: 80px; 
+}
+
 /* Paragraph Styling */
 p {
     text-align: justify;
@@ -148,7 +153,6 @@ hr.style {
     margin-bottom: 2.5em;
     margin-left: auto;
     margin-right: auto;
-/*     border-width: ; */
 }
 
 
@@ -190,8 +194,6 @@ table th {
 
 
 
-
-
 /* Header (Name Styling) */
 #name {
     font-family: var(--font-family-heading);
@@ -202,6 +204,7 @@ table th {
     padding: 0;
     line-height: var(--navbar-height); /* Aligns with navbar height */
     text-decoration: none;
+    
 }
 
 #name a,
@@ -212,16 +215,7 @@ table th {
     text-decoration: none;
 }
 
-/* Navigation - Global Variables */
-:root {
-    --navbar-height: 60px;
-    --container-padding: 10rem;
-    --content-width: 1200px;
-    --navbar-color: #353535;
-    --navbar-color-hover: #BB370A;
-    --navbar-background: #ffffff;
-    --border-color: #e0e0e0;
-}
+
 
 /* Navigation Styling */
 .navigation {
@@ -229,20 +223,25 @@ table th {
     top: 0;
     left: 0;
     width: 100%;
-    height: var(--navbar-height);
+    height: var(--navbar-height, 60px);
     background-color: var(--navbar-background);
     z-index: 1000;
     font-family: var(--font-family-base);
-    border-bottom: 1px solid var(--border-color); /* Subtle bottom border */
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center; 
+    
 }
 
 /* Container Styling for Navigation Content */
-.container {
+
+.nav-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
     max-width: var(--content-width);
-    margin: 0 auto;
     padding: 0 var(--container-padding);
 }
 
@@ -253,6 +252,8 @@ table th {
     list-style: none;
     padding: 0;
     margin: 0;
+    align-items: center; 
+    gap: 2rem;
 }
 
 .nav a {
@@ -268,27 +269,10 @@ table th {
 }
 
 .nav a.active {
-    color: var(--primary-color);
-    pointer-events: none; /* Prevent clicking on active link */
+    color: var(--accent-color);
+    pointer-events: none;
 }
 
-@media (max-width: 768px) {
-    #name {
-        display: none; /* Hide name on mobile */
-    }
-
-    .nav {
-        flex-direction: row;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem 0;
-    }
-
-    .navigation {
-        padding-top: 1rem;
-        padding-bottom: 0.5rem;
-    }
-}
 
 
 
@@ -308,10 +292,10 @@ table th {
     transition: background-color 0.3s ease, color 0.3s ease;
     padding: 0;
     outline: none;
+    margin-left: 1rem; /* Adds space between the last link and the toggle button */
 }
 
 #theme-toggle:hover {
-    background-color: var(--highlight-color);
     color: #fff;
 }
 
@@ -329,23 +313,67 @@ table th {
     opacity: 0.9;
 }
 
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    #name {
-        display: none; /* Hide name on mobile */
-    }
 
-    .nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem 0;
-    }
 
+    /* Center the navigation bar at the top */
     .navigation {
+        display: flex;
+        justify-content: center; /* Centers the nav-container horizontally */
         padding-top: 1rem;
         padding-bottom: 0.5rem;
+        height: var(--navbar-height);
     }
+
+    /* Ensure the navigation links remain in a row */
+    .nav {
+        flex-direction: row; /* Keeps links in a row */
+        justify-content: center; /* Centers the links horizontally */
+        gap: 1rem; /* Adds spacing between links */
+        padding: 0;
+    }
+
+    /* Maintain the link font size */
+    .nav a {
+        font-size: 1rem; /* Ensures font size remains the same */
+    }
+}
+
+@media (max-width: 575px) {
+    /* Hide the name on mobile */
+    #name {
+        display: none;
+    }
+
+    /* Center the navigation bar at the top */
+    /* .navigation {
+        display: flex;
+        justify-content: center; 
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+        height: var(--navbar-height);
+    } */
+
+    /* Ensure the navigation links remain in a row */
+    .nav {
+        flex-direction: row; /* Keeps links in a row */
+        justify-content: center; /* Centers the links horizontally */
+        gap: 1.5rem; /* Adds spacing between links */
+        padding: 0;
+    }
+
+    /* Maintain the link font size */
+    .nav a {
+        font-size: 1rem; /* Ensures font size remains the same */
+    }
+
+    
+    .nav-container {
+        justify-content: flex-end;
+    }
+
 }
 
 /* Footer - Defines the Bottom of the Website */

@@ -5,21 +5,21 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="navigation">
-		<div class="nav-container">
+	<header class="navigation">
+		<div class="container nav-container">
 			<a href="/" id="name">lillian horin</a>
 			<nav class="nav-wrapper">
 				<ul class="nav">
 					<li><a href="/" class="item">Home</a></li>
-					<li><a href="/cv/" class="item">CV</a></li>
 					<li><a href="/projects/" class="item">Projects</a></li>
-					<li><a href="/blog/" class="item">Blog</a></li>
-					<li><a href="/contact/" class="item">Contact</a></li>
-					<li><button id="theme-toggle">🌕</button></li> 
+					<li><a href="/resume/" class="item">Resume</a></li>
+					<li><a href="/blog/" class="item">Resources</a></li>
+					<li><button id="theme-toggle">🌕</button></li>
 				</ul>
 			</nav>
 		</div>
 	</header>
+	
 	
 
     <!-- JavaScript for active link highlighting -->
@@ -28,7 +28,7 @@
 			// Define a map of links and their possible paths
 			const pathMap = {
 				"/": ["/", "/index.html"],
-				"/cv/": ["/cv/", "/cv/index.html"],
+				"/resume/": ["/resume/", "/resume/index.html"],
 				"/projects/": ["/projects/", "/projects/index.html"],
 				"/blog/": ["/blog/", "/blog/index.html"],
 			};
