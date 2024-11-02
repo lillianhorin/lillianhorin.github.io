@@ -30,16 +30,17 @@
   --navbar-height: 60px;
 
   /* Theme Colors (Dark mode default) */
-  --background-color: #121212;
+  --background-color: #1c1c1c;
+  --navbar-background: #1c1c1c;
   --font-color-base: #f1f1f1;
   --font-color-muted: #b3b3b3;
   --link-color: #ffffff;
   --border-color: #333;
-  --navbar-background: #1c1c1c;
 
   /* Accent Colors */
-  --accent-color: #BB370A; /* Dominant accent color */
-  --highlight-color: #C7A4D8; /* Highlight color for animations and mark */
+  --accent-color: #4aa564; /* Dominant accent color */
+  --highlight-color: #bc91d0; /* 
+  Highlight color for animations and mark */
 
   /* Table Specific Variables */
   --table-border-color: var(--accent-color);
@@ -57,12 +58,13 @@
 
 /* Light Mode */
 .light-mode {
-  --background-color: #ffffff;
+  --background-color: #f9f9f9;
+  --navbar-background: #f9f9f9;
   --font-color-base: #2c2c2c;
   --font-color-muted: #575757;
   --link-color: #000000;
   --border-color: #e0e0e0;
-  --navbar-background: #f9f9f9;
+  --accent-color: #BB370A;
   --highlight-color: #C7A4D8;
 }
 
@@ -422,7 +424,6 @@ table th {
 }
 
 .cv li {
-	color: #353535;
 	font-size: 14px;
 	padding-bottom: 5px;
 }
