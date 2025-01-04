@@ -16,7 +16,7 @@
   --font-color-heading: var(--gray-7);
 
   /* Font Sizes */
-  --font-size-base: 1vw;
+  --font-size-base: 1rem;
   --name-font-size: 1.2rem;
   --tooltip-font-size: 0.75rem;
 
@@ -36,6 +36,7 @@
   --font-color-muted: #b3b3b3;
   --link-color: #ffffff;
   --border-color: #333;
+  --outline-color: #f1f1f1;
 
   /* Accent Colors */
   --accent-color: #4aa564; /* Dominant accent color */
@@ -67,6 +68,9 @@
   --accent-color: #BB370A;
   --highlight-color: #C7A4D8;
 }
+
+
+
 
 /* Body styling */
 
@@ -127,7 +131,41 @@ a {
 a:hover {
 color: var(--accent-color);
 }
-  
+
+/* Header styling */
+
+h1, h2, h3, h4, h5 {
+    color: var(--font-color-heading);
+    font-family: var(--font-base);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+
+h1 {
+    color: var(--font-color-base);
+    font-size: 30px;
+}
+
+h2 {
+    color: var(--accent-color);
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h2::before {
+    content: '—';
+    color: var(--accent-color);
+    margin-right: 8px; 
+    font-size: 20px;
+}
+
+h3 {
+    color: var(--font-color-base);
+    font-size: 24px;
+    font-weight: 500;
+}
 
 /* Highlighting - color and animation */
 
@@ -137,12 +175,14 @@ mark {
     background-position: 100% 0;
 }
 
+/* Animation Keyframes */
 @keyframes highlight {
     to {
         background-position: 0 0;
     }
 }
 
+/* Animation Trigger */
 .show {
     animation: highlight 0.5s 0.5s forwards;
     opacity: 1;
@@ -150,6 +190,7 @@ mark {
 
 /* Page Divider */
 hr.style { 
+    color: var(--border-color);
     border-top: 0px;
 	margin-top: 2.5em;
     margin-bottom: 2.5em;
@@ -415,6 +456,99 @@ table th {
     max-width: 100%;
 }
 
+
+
+/* About me */
+
+/* About Me Section Styling */
+.about-me {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 0;
+}
+
+.about-image img {
+    width: 250px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 768px) {
+    .about-me {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .about-image img {
+        margin-top: 20px;
+    }
+}
+
+/* General styling for the project section */
+.project-section {
+    padding: 50px;
+}
+
+/* Project container to center and space modules */
+.projects {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Individual project module styling */
+.project-module {
+    border: 4px solid var(--outline-color);
+    width: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Image styling */
+.project-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+/* Title styling */
+.project-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--font-color-base);
+    margin: 10px 0 5px; /* Adds spacing between title and description */
+}
+
+/* Description styling */
+.project-description {
+    font-size: 14px;
+    color: var(--font-color-muted); /* Use a muted font color */
+    line-height: 1.5;
+    margin: 5px 0 0; /* Space above and below the description */
+}
+
+/* Hover effect */
+.project-module:hover {
+    border-color: var(--accent-color);
+}
+
+
+
+
+
+
 /* CV - Styling Specific to CV*/
 
 .cv h2 {
@@ -427,5 +561,4 @@ table th {
 	font-size: 14px;
 	padding-bottom: 5px;
 }
-
 
