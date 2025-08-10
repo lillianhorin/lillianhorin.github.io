@@ -597,6 +597,7 @@ table tbody ul {
     border-radius: 8px;
     box-shadow: 0 2px 6px var(--project-shadow);
     transition: transform 0.3s ease;
+    
 }
 
 .project-module img {
@@ -605,6 +606,7 @@ table tbody ul {
     border-radius: 10px;
     object-fit: cover;
     flex-shrink: 0; 
+    pointer-events: none;
 }
 
 .project-module:hover {
@@ -620,6 +622,7 @@ table tbody ul {
     text-align: left;
     height: 100%; /* match image height */
     padding: 0.5rem 0;
+    
 }
 
 
@@ -639,6 +642,7 @@ table tbody ul {
     flex: 1; 
     margin: 0.5rem 0;
     font-size: 1rem;
+    text-align: left;
 }
 
 .project-text a {
