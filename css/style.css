@@ -106,7 +106,7 @@ p {
 /* Accent text */
 .accent-bold {
     font-weight: bold;
-    color: var(--highlight-color); /* or your specific hex/rgb */
+    color: var(--highlight-color); 
 }
   
 /* Tag styling */
@@ -133,7 +133,7 @@ p {
     color: var(--accent-color);
     font-weight: 700;
     text-decoration: none;
-    border: 2px solid var(--accent-color); /* full outline */
+    border: 2px solid var(--accent-color); 
     border-radius: 6px;
     background-color: var(--project-bg);
     padding: 0.1em 0.5em;
@@ -144,13 +144,13 @@ p {
 .tag-link:hover {
     color: white;
     background-color: var(--accent-color);
-    border-color: var(--accent-color); /* keeps border same color */
+    border-color: var(--accent-color); 
   }
 
 /* Icon (i) Styling */
 i {
     margin: 0 7.5px;
-    color: var(--font-color-base); /* Default color for icons */
+    color: var(--font-color-base); 
 }
 
 i:hover {
@@ -570,12 +570,6 @@ table tbody ul {
     }
 }
 
-/* General styling for the project section */
-.project-section {
-    padding: 10px;
-    margin-bottom: 2rem; 
-}
-
 /* Project container to center and space modules */
 .projects {
     display: flex;
@@ -584,21 +578,76 @@ table tbody ul {
     flex-wrap: wrap;
 }
 
+/* General styling for the project section */
+.project-section {
+    padding: 10px;
+    margin-bottom: 2rem; 
+}
+
 /* Individual project module styling */
 .project-module {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; /* make children match height */
+    gap: 1rem;
+    padding: 1.5rem;
+    width: 100%;
     border: 1px solid var(--border-color);
     background-color: var(--project-bg);
-    width: 270px;
     border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    padding: 1.5rem;
     box-shadow: 0 2px 6px var(--project-shadow);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.3s ease;
+}
+
+.project-module img {
+    width: 200px; 
+    height: 175px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0; 
+}
+
+.project-module:hover {
+    outline: 1px solid var(--accent-color);
+  }
+
+
+.project-module .project-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* pushes top and bottom apart */
+    flex: 1;
+    text-align: left;
+    height: 100%; /* match image height */
+    padding: 0.5rem 0;
 }
 
 
-/* Image styling */
+/* Hover effect */
+.view-project-link:hover {
+    border-color: var(--accent-color);
+    text-decoration: underline;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.project-text h3 {
+    margin: 0; 
+    font-size: 1.25rem;
+}
+
+.project-text p {
+    flex: 1; 
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.project-text a {
+    align-self: flex-end; /* right-align the link */
+    margin-top: auto; /* ensures it's at the bottom */
+    color: var(--accent-color);
+}
+
+/* For images with a larger aspect ratio */
 .project-image {
     width: 100%;
     height: auto;
@@ -619,17 +668,26 @@ table tbody ul {
     font-size: 14px;
     color: var(--font-color-muted); /* Use a muted font color */
     line-height: 1.5;
-    margin: 5px 0 0; /* Space above and below the description */
+    margin-bottom: 0.25rem;
 }
 
-/* Hover effect */
-.project-module:hover {
-    border-color: var(--accent-color);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transform: translateY(-3px);
+.project-meta {
+    font-size: 0.85rem;
+    color: var(--font-color-muted);
+    margin-top: 0;
+    padding-bottom: 1rem;
 }
 
+.project-meta .tags {
+    color: var(--highlight-color);
+    font-weight: 500;
+    margin-top: 0;
+}
 
+.view-project-link {
+    margin-top: 1rem; /* increase this for more space */
+    align-self: flex-start; /* keep it aligned left if flexbox is used */
+}
 
 
 /* CV - Styling Specific to CV*/
@@ -645,3 +703,88 @@ table tbody ul {
 	padding-bottom: 5px;
 }
 
+/* Photo Grid */
+.photo-grid {
+    column-count: 3; /* adjust for desktop */
+    column-gap: 15px;
+  }
+  
+  .photo-grid a {
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  .photo-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0px;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    pointer-events: none;
+    user-select: none;
+  }
+  
+  @media (max-width: 900px) {
+    .photo-grid {
+      column-count: 2;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .photo-grid {
+      column-count: 1;
+    }
+  }
+  
+  /* Lightbox container - centered with flexbox */
+.lightbox {
+    display: none;                 /* toggled to flex in JS */
+    position: fixed;
+    inset: 0;                      /* shorthand for top:0;right:0;bottom:0;left:0 */
+    z-index: 2000;
+    background-color: rgba(0,0,0,0.9);
+    justify-content: center;       /* horizontal centering */
+    align-items: center;           /* vertical centering */
+    padding: 20px;                 /* safe padding on small viewports */
+  }
+  
+  /* Image */
+  .lightbox-content {
+    max-width: calc(100% - 40px);  /* account for padding */
+    max-height: calc(100% - 40px);
+    object-fit: contain;
+    display: block;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    border-radius: 0px;
+  }
+  
+  /* Close button - absolutely positioned so it doesn't affect layout */
+  .lightbox-close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    z-index: 2100;                 /* above the image */
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  /* small visual hover affordance */
+  .lightbox-close:hover { background: rgba(255,255,255,0.08); }
+  
+  /* ensure clicking image doesn't propagate and close the overlay */
+  .lightbox-content { pointer-events: auto; }
+  
+  
+  
