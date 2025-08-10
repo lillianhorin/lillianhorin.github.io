@@ -40,8 +40,13 @@
 
   /* Accent Colors */
   --accent-color: #4aa564; /* Dominant accent color */
+  --accent-color-secondary: #E2C044;
   --highlight-color: #bc91d0; /* 
   Highlight color for animations and mark */
+
+  /* Project Colors */
+  --project-bg: rgba(255, 255, 255, 0.04);
+  --project-shadow: 0 2px 6px rgba(0,0,0,0.1);
 
   /* Table Specific Variables */
   --table-border-color: var(--accent-color);
@@ -59,17 +64,18 @@
 
 /* Light Mode */
 .light-mode {
-  --background-color: #f9f9f9;
-  --navbar-background: #f9f9f9;
+  --background-color: #ffffff;
+  --navbar-background: #ffffff;
   --font-color-base: #2c2c2c;
   --font-color-muted: #575757;
   --link-color: #000000;
   --border-color: #e0e0e0;
   --accent-color: #BB370A;
-  --highlight-color: #C7A4D8;
+  --highlight-color: #b691ca;
+  --project-bg: #fff;
+  --project-border: var(--border-color);
+  --project-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
-
-
 
 
 /* Body styling */
@@ -96,6 +102,50 @@ p {
     line-height: 1.6; 
     margin-bottom: 1rem;
 }
+
+/* Accent text */
+.accent-bold {
+    font-weight: bold;
+    color: var(--highlight-color); /* or your specific hex/rgb */
+}
+  
+/* Tag styling */
+.tag {
+    display: inline-block;
+    background-color: var(--project-bg);
+    color: var(--font-color-base);
+    border: 1px solid var(--border-color);
+    font-size: 0.6rem;
+    padding: 0.15em 0.5em;
+    border-radius: 12px;
+    text-decoration: none;
+    margin-top: 4px;
+    transition: background-color 0.3s ease;
+    font-weight: 400;
+    cursor: default;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    top: -3px;
+  }
+
+  .tag-link {
+    color: var(--accent-color);
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid var(--accent-color); /* full outline */
+    border-radius: 6px;
+    background-color: var(--project-bg);
+    padding: 0.1em 0.5em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+.tag-link:hover {
+    color: white;
+    background-color: var(--accent-color);
+    border-color: var(--accent-color); /* keeps border same color */
+  }
 
 /* Icon (i) Styling */
 i {
@@ -173,18 +223,19 @@ mark {
     background: linear-gradient(90deg, var(--highlight-color) 50%, rgba(255, 255, 255, 0) 50%);
     background-size: 200% 100%;
     background-position: 100% 0;
+     border-radius: 1.5px;
 }
 
 /* Animation Keyframes */
 @keyframes highlight {
     to {
-        background-position: 0 0;
+        background-position: 0% 0;
     }
 }
 
 /* Animation Trigger */
 .show {
-    animation: highlight 0.5s 0.5s forwards;
+    animation: highlight 0.6s linear forwards;
     opacity: 1;
 }
 
@@ -203,20 +254,48 @@ hr.style {
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: var(--table-font-size);
-    border-bottom: 2px solid var(--table-border-color);
+    font-family: var(--font-family-base);
+    font-size: 0.9rem;
+    color: var(--font-color-base);
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
 table th, table td {
-    padding: var(--table-padding);
-    border-bottom: 1px solid var(--table-border-color);
+    padding: 6px 12px;
+    vertical-align: top;
+    border-bottom: 2px dotted var(--border-color); 
 }
 
 table th {
-    border-bottom-width: 2px;
+    border-bottom: 2px solid var(--border-color);
     text-align: left;
+    font-weight: 600;
+    color: var(--font-color-base);
+    text-transform: none; /* no caps */
 }
 
+/* Remove bottom border from last row cells */
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* For the date column, keep nowrap and fixed width */
+table td:nth-child(2),
+table td:nth-child(3),
+table th:nth-child(2),
+table th:nth-child(3) {
+  white-space: nowrap;
+}
+
+/* Remove bullet points in nested ul inside tables */
+table tbody ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+  
 /* iFrame Responsiveness */
 
 @media (max-width: 768px) {
@@ -227,7 +306,6 @@ table th {
 	
 }
 
-
 @media (max-width: 400px) {
 	iframe {
 		width: 300px;
@@ -235,7 +313,14 @@ table th {
 	}
 }
 
-
+@media (max-width: 850px) {
+    table td:nth-child(2),
+    table td:nth-child(3),
+    table th:nth-child(2),
+    table th:nth-child(3) {
+      white-space: normal;
+    }
+  }
 
 /* Header (Name Styling) */
 #name {
@@ -390,14 +475,7 @@ table th {
         display: none;
     }
 
-    /* Center the navigation bar at the top */
-    /* .navigation {
-        display: flex;
-        justify-content: center; 
-        padding-top: 1rem;
-        padding-bottom: 0.5rem;
-        height: var(--navbar-height);
-    } */
+
 
     /* Ensure the navigation links remain in a row */
     .nav {
@@ -494,26 +572,31 @@ table th {
 
 /* General styling for the project section */
 .project-section {
-    padding: 50px;
+    padding: 10px;
+    margin-bottom: 2rem; 
 }
 
 /* Project container to center and space modules */
 .projects {
     display: flex;
-    gap: 20px;
+    gap: 10px;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 /* Individual project module styling */
 .project-module {
-    border: 4px solid var(--outline-color);
-    width: 200px;
+    border: 1px solid var(--border-color);
+    background-color: var(--project-bg);
+    width: 270px;
     border-radius: 8px;
     overflow: hidden;
     text-align: center;
-    padding: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px var(--project-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 
 /* Image styling */
 .project-image {
@@ -542,9 +625,9 @@ table th {
 /* Hover effect */
 .project-module:hover {
     border-color: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transform: translateY(-3px);
 }
-
-
 
 
 
