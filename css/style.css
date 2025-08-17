@@ -497,6 +497,8 @@ table tbody ul {
 
 }
 
+
+
 /* Footer - Defines the Bottom of the Website */
 
 #last {
@@ -692,6 +694,28 @@ table tbody ul {
     margin-top: 1rem; /* increase this for more space */
     align-self: flex-start; /* keep it aligned left if flexbox is used */
 }
+
+/* Mobile responsiveness for project modules */
+@media (max-width: 768px) {
+    .project-module {
+        flex-direction: column;
+        align-items: center; /* center image and text */
+        text-align: center;
+    }
+
+    .project-module .project-text {
+        padding: 0.5rem 0;
+        height: auto; /* let text height expand naturally */
+    }
+
+    .project-module img {
+        width: 80%;       /* smaller on tablets */
+        max-width: 300px; /* never exceed 300px */
+        height: auto;
+        margin-bottom: 15px; /* space between image and text */
+    }
+}
+
 
 
 /* CV - Styling Specific to CV*/
