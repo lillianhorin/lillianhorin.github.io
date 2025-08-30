@@ -767,32 +767,33 @@ table tbody ul {
   
   /* Lightbox container - centered with flexbox */
 .lightbox {
-    display: none;                 /* toggled to flex in JS */
+    display: none;                 
     position: fixed;
-    inset: 0;                      /* shorthand for top:0;right:0;bottom:0;left:0 */
+    inset: 0;                      
     z-index: 2000;
     background-color: rgba(0,0,0,0.9);
-    justify-content: center;       /* horizontal centering */
-    align-items: center;           /* vertical centering */
-    padding: 20px;                 /* safe padding on small viewports */
-  }
-  
-  /* Image */
-  .lightbox-content {
-    max-width: calc(100% - 40px);  /* account for padding */
+    justify-content: center;       
+    align-items: center;           
+    padding: 20px;                 
+}
+
+/* Image */
+.lightbox-content {
+    max-width: calc(100% - 40px);  
     max-height: calc(100% - 40px);
     object-fit: contain;
     display: block;
     box-shadow: 0 8px 30px rgba(0,0,0,0.6);
     border-radius: 0px;
-  }
-  
-  /* Close button - absolutely positioned so it doesn't affect layout */
-  .lightbox-close {
+    pointer-events: auto;
+}
+
+/* Close button */
+.lightbox-close {
     position: absolute;
     top: 18px;
     right: 20px;
-    z-index: 2100;                 /* above the image */
+    z-index: 2100;
     background: rgba(0,0,0,0.4);
     color: #fff;
     border: none;
@@ -806,13 +807,34 @@ table tbody ul {
     align-items: center;
     justify-content: center;
     padding: 0;
-  }
-  
-  /* small visual hover affordance */
-  .lightbox-close:hover { background: rgba(255,255,255,0.08); }
-  
-  /* ensure clicking image doesn't propagate and close the overlay */
-  .lightbox-content { pointer-events: auto; }
-  
-  
-  
+}
+
+.lightbox-close:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+/* Left/Right arrows */
+.lightbox-arrow {
+    position: fixed;           
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6); 
+    border: none;
+    color: white;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-arrow.left { left: 10px; }
+.lightbox-arrow.right { right: 10px; }
+
+.lightbox-arrow:hover {
+    background: rgba(0,0,0,0.8);
+}
