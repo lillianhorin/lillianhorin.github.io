@@ -1,9 +1,12 @@
-/* === IMPORT STYLES === */
+/* || IMPORT STYLES || */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Libre+Baskerville&display=swap');
 
 
-/* === ROOT VARIABLES === */
+
+
+
+/* || ROOT VARIABLES || */
 
 
 /* Define common colors, font families, and sizes */
@@ -87,7 +90,7 @@
 
 
 
-/* === GLOBAL STYLES === */
+/* || GLOBAL STYLES || */
 
 
 /* Body styling */
@@ -223,7 +226,7 @@ color: var(--accent-color);
 
 
 
-/* === SITEWIDE STYLES === */
+/* || SITEWIDE STYLES || */
 
 
 /* Name header styling */
@@ -354,7 +357,7 @@ color: var(--accent-color);
 
 
 
-/* === UTILITY STYLES === */
+/* || UTILITY STYLES || */
 
 
 /* Tag styling */
@@ -431,7 +434,7 @@ hr.style {
 
 
 
-/* === CONTAINER STYLES === */
+/* || CONTAINER STYLES || */
 
 /* Photo grid */
 .photo-grid {
@@ -538,7 +541,7 @@ hr.style {
 
 
 
-/* === PAGE STYLES === */
+/* || PAGE STYLES || */
 
 
 /* Home */
@@ -709,7 +712,7 @@ hr.style {
 
 
 
-/* === RESPONSIVE STYLES === */
+/* || RESPONSIVE STYLES || */
 
 
 /* Responsive adjustments */
@@ -829,6 +832,7 @@ hr.style {
   }
 
 
+<<<<<<< HEAD
 /* ============================================
    HOMEPAGE HERO — split layout
    Add this to the bottom of style.css
@@ -1117,3 +1121,5 @@ hr.dotted-separator {
 /* ============================================
    END OF STYLE.CSS
    ============================================ */
+=======
+>>>>>>> parent of 057562e (Checkpoint publish)

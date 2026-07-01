@@ -4,35 +4,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeBtn = document.querySelector(".lightbox-close");
   const leftArrow = document.querySelector(".lightbox-arrow.left");
   const rightArrow = document.querySelector(".lightbox-arrow.right");
+  const photoItems = Array.from(document.querySelectorAll(".photo-item"));
   let currentIndex = 0;
 
-  // Re-query every time, so this works whether .photo-item elements
-  // were in the original HTML or added later by gallery-grid.js
-  function getPhotoItems() {
-    return Array.from(document.querySelectorAll(".photo-item"));
-  }
-
-  function showImage(index) {
-    const items = getPhotoItems();
-    if (!items.length) return;
-    currentIndex = (index + items.length) % items.length;
-    const item = items[currentIndex];
-    const src = item.getAttribute("href");
-    const alt = item.querySelector("img")?.alt || "";
+  function openLightbox(src, alt = "", index = 0) {
+    currentIndex = index;
     lightboxImg.src = src;
     lightboxImg.alt = alt;
-  }
-
-  function openLightbox(index) {
-    const items = getPhotoItems();
-    if (!items.length) return;
-    showImage(index);
     lightbox.style.display = "flex";
     lightbox.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
 
     // Disable interactions with widgets
-    document.querySelectorAll(".pinterest-button, .share-widget").forEach((el) => (el.style.pointerEvents = "none"));
+    document.querySelectorAll(".pinterest-button, .share-widget").forEach(el => el.style.pointerEvents = "none");
   }
 
   function closeLightbox() {
@@ -42,21 +26,28 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.overflow = "";
 
     // Re-enable widgets
-    document.querySelectorAll(".pinterest-button, .share-widget").forEach((el) => (el.style.pointerEvents = ""));
+    document.querySelectorAll(".pinterest-button, .share-widget").forEach(el => el.style.pointerEvents = "");
   }
 
-  // Event delegation: catches clicks on .photo-item no matter when it was added to the page
-  document.addEventListener("click", (e) => {
-    const item = e.target.closest(".photo-item");
-    if (!item) return;
-    e.preventDefault();
-    const items = getPhotoItems();
-    openLightbox(items.indexOf(item));
+  function showImage(index) {
+    currentIndex = (index + photoItems.length) % photoItems.length;
+    const src = photoItems[currentIndex].getAttribute("href");
+    const alt = photoItems[currentIndex].querySelector("img")?.alt || "";
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+  }
+
+  // Photo click
+  photoItems.forEach((item, index) => {
+    item.addEventListener("click", e => {
+      e.preventDefault();
+      openLightbox(item.getAttribute("href"), item.querySelector("img")?.alt || "", index);
+    });
   });
 
   // Close lightbox
   closeBtn.addEventListener("click", closeLightbox);
-  lightbox.addEventListener("click", (e) => {
+  lightbox.addEventListener("click", e => {
     if (e.target === lightbox) closeLightbox();
   });
 
@@ -65,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
   rightArrow.addEventListener("click", () => showImage(currentIndex + 1));
 
   // Keyboard navigation
-  document.addEventListener("keydown", (e) => {
+  document.addEventListener("keydown", e => {
     if (lightbox.style.display !== "flex") return;
     if (e.key === "Escape") closeLightbox();
     else if (e.key === "ArrowRight") showImage(currentIndex + 1);
@@ -73,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Prevent right-click on lightbox image
-  document.addEventListener("contextmenu", (e) => {
+  document.addEventListener("contextmenu", e => {
     if (e.target.tagName === "IMG" && e.target.closest(".lightbox")) e.preventDefault();
   });
 });
