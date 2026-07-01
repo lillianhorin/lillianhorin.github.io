@@ -10,9 +10,11 @@
 			<a href="/" id="name">lillian horin</a>
 			<nav class="nav-wrapper">
 				<ul class="nav">
-                    <!-- Photography group: label + always-visible sub-items -->
-                    <li class="nav-group">
-                        <span class="item group-label">Photography</span>
+                    <!-- Photography group: clickable toggle + collapsible Stills/Stories -->
+                    <li class="nav-group expanded">
+                        <a href="#" class="item group-toggle">
+                            Photography <span class="toggle-arrow">▶</span>
+                        </a>
                         <a href="/" class="item sub-item">Stills</a>
                         <a href="/photography/stories/" class="item sub-item">Stories</a>
                     </li>
@@ -42,7 +44,23 @@
             const linkPath = link.getAttribute("href");
             if (pathMap[linkPath] && pathMap[linkPath].includes(window.location.pathname)) {
                 link.classList.add('active');
+
+                // If we're on a Photography sub-page, make sure the group is expanded
+                const group = link.closest('.nav-group');
+                if (group) {
+                    group.classList.add('expanded');
+                }
             }
+        });
+    </script>
+
+    <!-- JavaScript: click "Photography" to expand/collapse Stills & Stories -->
+    <script>
+        document.querySelectorAll('.group-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                this.closest('.nav-group').classList.toggle('expanded');
+            });
         });
     </script>
 

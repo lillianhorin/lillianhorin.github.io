@@ -1010,55 +1010,79 @@ hr.style {
 }
 
 /* ============================================
-   NAV GROUP — Photography label + always-visible
-   Stills / Stories sub-items (replaces dropdown)
+   NAV GROUP — clickable "Photography" toggle
+   that expands/collapses Stills / Stories inline
    ============================================ */
 
-/* The <li> that wraps the label + sub-links */
+/* The <li> that wraps the toggle + sub-links */
 .nav-group {
     display: flex;
     align-items: center;
     gap: 0.6rem;
 }
 
-/* "Photography" label — small category tag, not a link */
-.nav-group .group-label {
-    font-size: 0.7rem;
-    font-weight: normal;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--font-color-muted);
-    cursor: default;
-}
-
-/* Stills / Stories — same size/weight as Work, Resume, About */
-.nav-group .sub-item {
+/* "Photography" — same size/weight as Work, Resume, About; a link that toggles */
+.nav-group .group-toggle {
     font-size: 1rem;
     font-weight: bold;
     color: var(--navbar-color);
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: color 0.3s ease;
+}
+
+.nav-group .group-toggle:hover {
+    color: var(--accent-color);
+}
+
+/* Arrow rotates from ▶ to ▼ when the group is expanded */
+.nav-group .toggle-arrow {
+    display: inline-block;
+    font-size: 0.6rem;
+    transition: transform 0.2s ease;
+}
+
+.nav-group.expanded .toggle-arrow {
+    transform: rotate(90deg);
+}
+
+/* Stills / Stories — smaller, unbold, subordinate to "Photography" */
+.nav-group .sub-item {
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: var(--navbar-color);
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 0;
+    opacity: 0;
+    transition: max-width 0.25s ease, opacity 0.2s ease, margin 0.25s ease;
+}
+
+/* When expanded, reveal Stills / Stories inline next to the toggle */
+.nav-group.expanded .sub-item {
+    max-width: 100px;
+    opacity: 1;
+}
+
+.nav-group .sub-item.active {
+    color: var(--accent-color);
+    pointer-events: none;
 }
 
 .nav-group .sub-item:hover {
     color: var(--accent-color);
 }
 
-/* Active sub-item (e.g. Stills on the homepage) gets accent color */
-.nav-group .sub-item.active {
-    color: var(--accent-color);
-    pointer-events: none;
-}
-
 @media (max-width: 768px) {
     .nav-group {
-        gap: 0.4rem;
+        gap: 0.5rem;
     }
 
-    .nav-group .group-label {
-        font-size: 0.65rem;
-    }
-
-    .nav-group .sub-item {
-        font-size: 1rem;
+    .nav-group.expanded .sub-item {
+        max-width: 90px;
     }
 }
 
