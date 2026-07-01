@@ -10,7 +10,6 @@
 			<a href="/" id="name">lillian horin</a>
 			<nav class="nav-wrapper">
 				<ul class="nav">
-<<<<<<< HEAD
                     <!-- Photography group: clickable toggle + collapsible Stills/Stories -->
                     <li class="nav-group expanded">
                         <a href="#" class="item group-toggle">
@@ -20,10 +19,6 @@
                         <a href="/photography/stories/" class="item sub-item">Stories</a>
                     </li>
 					<li><a href="/work/" class="item">Work</a></li>
-=======
-					<li><a href="/" class="item">Home</a></li>
-					<li><a href="/projects/" class="item">Projects</a></li> 
->>>>>>> parent of 057562e (Checkpoint publish)
 					<li><a href="/resume/" class="item">Resume</a></li>
 					<!-- <li><a href="/resources/" class="item">Resources</a></li> -->
 					<li><button id="theme-toggle">🌕</button></li>
@@ -45,7 +40,6 @@
 			};
 	
 			// Get the href path of the current link
-<<<<<<< HEAD
             const linkPath = link.getAttribute("href");
             if (pathMap[linkPath] && pathMap[linkPath].includes(window.location.pathname)) {
                 link.classList.add('active');
@@ -58,16 +52,6 @@
             }
         });
     </script>
-=======
-			const linkPath = link.getAttribute("href");
-	
-			// Check if the current URL pathname matches any of the possible paths for each link
-			if (pathMap[linkPath] && pathMap[linkPath].includes(window.location.pathname)) {
-				link.classList.add('active');
-			}
-		});
-	</script>
->>>>>>> parent of 057562e (Checkpoint publish)
 
     <!-- JavaScript: click "Photography" to expand/collapse Stills & Stories -->
     <script>
