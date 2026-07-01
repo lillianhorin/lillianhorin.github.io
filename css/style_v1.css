@@ -1009,59 +1009,6 @@ hr.style {
     }
 }
 
-/* ============================================
-   NAV GROUP — Photography label + always-visible
-   Stills / Stories sub-items (replaces dropdown)
-   ============================================ */
-
-/* The <li> that wraps the label + sub-links */
-.nav-group {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-}
-
-/* "Photography" label — small category tag, not a link */
-.nav-group .group-label {
-    font-size: 0.7rem;
-    font-weight: normal;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--font-color-muted);
-    cursor: default;
-}
-
-/* Stills / Stories — same size/weight as Work, Resume, About */
-.nav-group .sub-item {
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--navbar-color);
-}
-
-.nav-group .sub-item:hover {
-    color: var(--accent-color);
-}
-
-/* Active sub-item (e.g. Stills on the homepage) gets accent color */
-.nav-group .sub-item.active {
-    color: var(--accent-color);
-    pointer-events: none;
-}
-
-@media (max-width: 768px) {
-    .nav-group {
-        gap: 0.4rem;
-    }
-
-    .nav-group .group-label {
-        font-size: 0.65rem;
-    }
-
-    .nav-group .sub-item {
-        font-size: 1rem;
-    }
-}
-
 /* Still testing it out */
 
 hr.dotted-separator {

@@ -10,15 +10,20 @@
 			<a href="/" id="name">lillian horin</a>
 			<nav class="nav-wrapper">
 				<ul class="nav">
-					<li><a href="/" class="item">Home</a></li>
-					<li><a href="/projects/" class="item">Projects</a></li> 
+                    <!-- Photography group: label + always-visible sub-items -->
+                    <li class="nav-group">
+                        <span class="item group-label">Photography</span>
+                        <a href="/" class="item sub-item">Stills</a>
+                        <a href="/photography/stories/" class="item sub-item">Stories</a>
+                    </li>
+					<li><a href="/work/" class="item">Work</a></li>
 					<li><a href="/resume/" class="item">Resume</a></li>
-					<!-- <li><a href="/resources/" class="item">Resources</a></li> -->
+					<li><a href="/about/" class="item">About</a></li>
 					<li><button id="theme-toggle">🌕</button></li>
 				</ul>
 			</nav>
 		</div>
-		
+
 	</header>
 
     <!-- JavaScript for active link highlighting -->
@@ -26,21 +31,20 @@
 		document.querySelectorAll('.nav li a').forEach(link => {
 			// Define a map of links and their possible paths
 			const pathMap = {
-				"/": ["/", "/index.html"],
-				"/resume/": ["/resume/", "/resume/index.html"],
-				"/projects/": ["/projects/", "/projects/index.html"],
-				"/resources/": ["/resources/", "/resources/index.html"]
-			};
-	
+                "/": ["/", "/index.html"],
+                "/photography/stories/": ["/photography/stories/", "/photography/stories/index.html"],
+                "/work/": ["/work/", "/work/index.html"],
+                "/resume/": ["/resume/", "/resume/index.html"],
+                "/about/": ["/about/", "/about/index.html"],
+            };
+
 			// Get the href path of the current link
-			const linkPath = link.getAttribute("href");
-	
-			// Check if the current URL pathname matches any of the possible paths for each link
-			if (pathMap[linkPath] && pathMap[linkPath].includes(window.location.pathname)) {
-				link.classList.add('active');
-			}
-		});
-	</script>
+            const linkPath = link.getAttribute("href");
+            if (pathMap[linkPath] && pathMap[linkPath].includes(window.location.pathname)) {
+                link.classList.add('active');
+            }
+        });
+    </script>
 
 <!-- JavaScript for theme toggle -->
 <script src="/js/theme-toggle.js"></script>

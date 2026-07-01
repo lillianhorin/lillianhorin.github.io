@@ -7,19 +7,19 @@ const themeToggle = document.getElementById('theme-toggle');
 
 // Initial theme setup based on saved preference or default to dark mode
 const currentTheme = localStorage.getItem('theme');
-if (currentTheme === 'light') {
-    document.documentElement.classList.add('light-mode');
-    themeToggle.textContent = moonIcon; // Show moon icon for light mode
-    themeToggle.setAttribute('data-tooltip', 'Toggle to dark mode');
-} else {
-    themeToggle.textContent = sunIcon; // Show sun icon for dark mode
+if (currentTheme === 'dark') {
+    document.documentElement.classList.add('dark-mode');
+    themeToggle.textContent = sunIcon;
     themeToggle.setAttribute('data-tooltip', 'Toggle to light mode');
+} else {
+    themeToggle.textContent = moonIcon;
+    themeToggle.setAttribute('data-tooltip', 'Toggle to dark mode');
 }
 
 // Event listener to toggle the theme on click
 themeToggle.addEventListener('click', () => {
-    document.documentElement.classList.toggle('light-mode');
-    const theme = document.documentElement.classList.contains('light-mode') ? 'light' : 'dark';
+    document.documentElement.classList.toggle('dark-mode');
+    const theme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
     localStorage.setItem('theme', theme);
 
     // Update the icon and tooltip text based on the theme
@@ -38,6 +38,6 @@ themeToggle.addEventListener('mouseenter', () => {
 });
 
 themeToggle.addEventListener('mouseleave', () => {
-    const theme = document.documentElement.classList.contains('light-mode') ? moonIcon : sunIcon;
+    const theme = document.documentElement.classList.contains('dark-mode') ? sunIcon : moonIcon;
     themeToggle.textContent = theme;
 });
